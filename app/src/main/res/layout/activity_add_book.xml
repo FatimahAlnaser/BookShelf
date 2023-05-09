@@ -101,17 +101,52 @@
         android:id="@+id/name1"
         android:layout_width="83dp"
         android:layout_height="17dp"
+        android:layout_marginBottom="٠dp"
         android:fontFamily="serif-monospace"
         android:text="BOOKSHELF"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uplode"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="٠dp"
+        android:layout_marginBottom="9dp"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_stat"
+
+        app:layout_constraintVertical_bias="0.833"
+        app:srcCompat="@drawable/baseline_upload_24" />
+
+    <ImageView
+        android:id="@+id/ImageView1"
+        android:layout_width="200dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="٠dp"
+        android:layout_marginTop="٠dp"
+        android:layout_marginEnd="٠dp"
+        android:layout_marginBottom="٠dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintEnd_toStartOf="@+id/uplode"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_stat"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/photo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,23 @@
 package com.example.bookshelf;
 
+import static com.example.bookshelf.R.id.ImageView1;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class AddBook extends AppCompatActivity {
 
@@ -20,10 +29,34 @@ public class AddBook extends AppCompatActivity {
 
     ArrayAdapter booksArrayAdapter;
 
+    ImageView photo ;
+
+    FloatingActionButton button;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
+
+        photo = findViewById( ImageView1);
+        button = (FloatingActionButton) (ImageView) findViewById(R.id.uplode);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImagePicker.with(AddBook.this)
+                        .crop()	    			//Crop image(Optional), Check Customization for more option
+                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .start();
+
+            }
+        });
+
+
+
+
+
 
         btn_add=findViewById(R.id.btn_add);
 
@@ -61,6 +94,8 @@ public class AddBook extends AppCompatActivity {
 
 
     }
+
+
 
     private void ShowCustomerListView(DBhelper dataBaseHelper2) {
         booksArrayAdapter = new ArrayAdapter<BookModel>(AddBook.this , android.R.layout.simple_list_item_1 , dataBaseHelper2.getEveryone());
