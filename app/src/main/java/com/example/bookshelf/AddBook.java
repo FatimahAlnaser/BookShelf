@@ -1,12 +1,14 @@
 package com.example.bookshelf;
 
 import static com.example.bookshelf.R.id.ImageView1;
+import static com.example.bookshelf.R.id.imageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -38,9 +40,8 @@ public class AddBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
-
         photo = findViewById( ImageView1);
-        button = (FloatingActionButton) (ImageView) findViewById(R.id.uplode);
+        button = findViewById(R.id.uplode);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,5 +101,11 @@ public class AddBook extends AppCompatActivity {
     private void ShowCustomerListView(DBhelper dataBaseHelper2) {
         booksArrayAdapter = new ArrayAdapter<BookModel>(AddBook.this , android.R.layout.simple_list_item_1 , dataBaseHelper2.getEveryone());
         lv_bookList.setAdapter( booksArrayAdapter);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
+super.onActivityResult(requestCode,resultCode,data);
+Uri uri=data.getData();
+photo.setImageURI(uri);
     }
 }

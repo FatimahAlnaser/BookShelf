@@ -32,7 +32,7 @@ public class Signin extends AppCompatActivity {
 
                 if(user.equals("")||pass.equals(""))
                     Toast.makeText(Signin.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else{
+                 else{
                     Boolean checkUser = DB.checkUsername(user);
                     Boolean checkPass = DB.checkUsernamePassword(user,pass);
                     if(!checkPass || !checkUser){

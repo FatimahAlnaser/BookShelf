@@ -57,7 +57,7 @@
         android:id="@+id/btn_add"
         android:layout_width="241dp"
         android:layout_height="55dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="216dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Add"
@@ -97,55 +97,47 @@
         app:layout_constraintVertical_bias="0.037"
         app:srcCompat="@drawable/booklogo" />
 
+
+    <ImageView
+        android:id="@+id/ImageView1"
+        android:layout_width="127dp"
+        android:layout_height="139dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758"
+        app:srcCompat="@drawable/photo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/uplode"
+        android:layout_width="68dp"
+        android:layout_height="53dp"
+        android:clickable="true"
+        app:backgroundTint="#FF5722"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.788"
+        app:srcCompat="@drawable/baseline_upload_24"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/name1"
         android:layout_width="83dp"
         android:layout_height="17dp"
-        android:layout_marginBottom="٠dp"
         android:fontFamily="serif-monospace"
         android:text="BOOKSHELF"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
-
-    <ImageView
-        android:id="@+id/uplode"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="٠dp"
-        android:layout_marginBottom="9dp"
-        android:clickable="true"
-        android:contentDescription="TODO"
-        android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_stat"
-
-        app:layout_constraintVertical_bias="0.833"
-        app:srcCompat="@drawable/baseline_upload_24" />
-
-    <ImageView
-        android:id="@+id/ImageView1"
-        android:layout_width="200dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="٠dp"
-        android:layout_marginTop="٠dp"
-        android:layout_marginEnd="٠dp"
-        android:layout_marginBottom="٠dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add"
-        app:layout_constraintEnd_toStartOf="@+id/uplode"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_stat"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/photo" />
-
-
+        app:layout_constraintVertical_bias="0.128" />
 </androidx.constraintlayout.widget.ConstraintLayout>
