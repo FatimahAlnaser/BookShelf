@@ -15,24 +15,21 @@ public class DeleteBook extends AppCompatActivity {
     ListView lv_BookList;
     ArrayAdapter bookArrayAdapter;
     DBhelper dataBaseHelper;
-Button btnview;
+    Button btnview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_book);
-        lv_BookList = findViewById(R.id.lv_BooksList);
+       /*lv_BookList = findViewById(R.id.lv_BooksList);
          btnview=findViewById(R.id.btnviews);
 
       dataBaseHelper = new DBhelper(DeleteBook.this);
         ShowBookOnListView(dataBaseHelper);
 
     }
-btnview.OnClickListener(new View.OnClickListener()){
 
-
-
-    });
-        btnview.setOnClickListener( new View.OnClickListener() {
+        btnview.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v){
             dataBaseHelper = new DBhelper(DeleteBook.this);
             ShowBookOnListView(dataBaseHelper);
@@ -40,6 +37,7 @@ btnview.OnClickListener(new View.OnClickListener()){
             //Toast.makeText(MainActivity.this, everyone.toString(), Toast.LENGTH_SHORT).show();
         }
     });
+
 
   lv_BookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -53,5 +51,6 @@ btnview.OnClickListener(new View.OnClickListener()){
     private void ShowBookOnListView(DBhelper dataBaseHelper) {
         bookArrayAdapter = new ArrayAdapter<BookModel>(DeleteBook.this, android.R.layout.simple_list_item_1, dataBaseHelper.getBook());
         lv_BookList.setAdapter(bookArrayAdapter);
+    }*/
     }
 }
