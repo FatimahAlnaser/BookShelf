@@ -40,6 +40,7 @@ public class Signin extends AppCompatActivity {
                         }else{
                         Login.setOnClickListener(v -> {
                             Intent intent = new Intent(getApplicationContext(), Home.class);
+                            startActivity(intent);
                         });
                         }
                     }
