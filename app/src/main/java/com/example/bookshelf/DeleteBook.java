@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class DeleteBook extends AppCompatActivity {
     ListView lv_BookList;
     ArrayAdapter bookArrayAdapter;
-    DBhelper dataBaseHelper;
+    dataBase dataBaseHelper;
     Button btnview;
 
     @Override
@@ -24,14 +24,14 @@ public class DeleteBook extends AppCompatActivity {
         lv_BookList = findViewById(R.id.lv_BooksList);
         btnview=findViewById(R.id.btnviews);
 
-        dataBaseHelper = new DBhelper(DeleteBook.this);
+        dataBaseHelper = new dataBase(DeleteBook.this);
         ShowBookOnListView(dataBaseHelper);
 
 
 
         btnview.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                dataBaseHelper = new DBhelper(DeleteBook.this);
+                dataBaseHelper = new dataBase(DeleteBook.this);
                 ShowBookOnListView(dataBaseHelper);
 
                 //Toast.makeText(MainActivity.this, everyone.toString(), Toast.LENGTH_SHORT).show();
@@ -50,7 +50,7 @@ public class DeleteBook extends AppCompatActivity {
         });
 
     }
-    private void ShowBookOnListView(DBhelper dataBaseHelper) {
+    private void ShowBookOnListView(dataBase dataBaseHelper) {
         bookArrayAdapter = new ArrayAdapter<BookModel>(DeleteBook.this, android.R.layout.simple_list_item_1, dataBaseHelper.getBook());
         lv_BookList.setAdapter(bookArrayAdapter);
     }

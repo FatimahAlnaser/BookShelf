@@ -2,12 +2,14 @@ package com.example.bookshelf;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class dataBase extends SQLiteOpenHelper {
@@ -52,4 +54,51 @@ public class dataBase extends SQLiteOpenHelper {
         else {return true;}
 
     }
+
+    /////DELETE
+    public List<BookModel> getBook(){
+        List<BookModel> returnList = new ArrayList<>();
+// check the where condition *****************************************************************************************
+        String queryString ="SELECT * FROM "+ BOOK_TABLE ; //+ " WHERE " + USERNAMECOL + " = " +.getId() ;;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString,null);
+
+        if (cursor.moveToFirst()){
+            do{
+                int bookID = cursor.getInt(0);
+                String BookName = cursor.getString(1);
+                int BookPrice = cursor.getInt(2);
+                String BookState = cursor.getString(3);
+
+                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState);
+                returnList.add(newCustomer);
+
+            }while (cursor.moveToNext());
+
+        }else{
+
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return returnList;
+
+    }
+    public boolean DeleteOne(BookModel BookMod){
+        SQLiteDatabase db = this.getWritableDatabase();
+        //////check the where condition **********************************************************************************************
+        String queryString= "Delete From " + BOOK_TABLE ;
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        } else{
+
+            return false;
+        }
+
+    }
 }
+
