@@ -40,6 +40,7 @@ public class AddBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
+
         photo = findViewById( ImageView1);
         button = findViewById(R.id.uplode);
         button.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +83,12 @@ public class AddBook extends AppCompatActivity {
                 }
 
 
-                DBhelper dataBaseHelper = new DBhelper(AddBook.this);
+                dataBase dataBaseHelper = new dataBase(AddBook.this);
 
                 boolean success = dataBaseHelper.addOne(newBook);
 
                 Toast.makeText(AddBook.this,"Success= "+ success ,Toast.LENGTH_SHORT).show();
-                ShowCustomerListView(dataBaseHelper);
+                //ShowCustomerListView(dataBaseHelper);
 
 
             }
@@ -98,10 +99,6 @@ public class AddBook extends AppCompatActivity {
 
 
 
-    private void ShowCustomerListView(DBhelper dataBaseHelper2) {
-        booksArrayAdapter = new ArrayAdapter<BookModel>(AddBook.this , android.R.layout.simple_list_item_1 , dataBaseHelper2.getEveryone());
-        lv_bookList.setAdapter( booksArrayAdapter);
-    }
 
     protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data){
 super.onActivityResult(requestCode,resultCode,data);
