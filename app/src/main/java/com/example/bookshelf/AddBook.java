@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,11 +29,13 @@ public class AddBook extends AppCompatActivity {
     EditText book_name, book_price,book_stat;
     DBhelper dataBaseHelper;
 
+
+
     ListView lv_bookList;
 
     ArrayAdapter booksArrayAdapter;
 
-    ImageView photo ;
+    ImageView photo ,back;
 
     FloatingActionButton button;
 
@@ -39,10 +43,14 @@ public class AddBook extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_book);
 
         photo = findViewById( ImageView1);
         button = findViewById(R.id.uplode);
+        back = findViewById(R.id.imageButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +104,13 @@ public class AddBook extends AppCompatActivity {
             }
         });
 
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

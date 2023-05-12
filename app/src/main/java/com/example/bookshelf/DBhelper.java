@@ -57,6 +57,20 @@ public class DBhelper extends SQLiteOpenHelper {
         return false;
     }
 
+    public Boolean checkEmail( String email){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + USERSTABLE + " where " + EMAILCOL + " = ?" , new String[] {email});
+        if(cursor.getCount()>0) return true;
+        return false;
+    }
+
+    public Boolean checkPhone( String phone){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + USERSTABLE + " where " + PhoneNumCOL + " = ?" , new String[] {phone});
+        if(cursor.getCount()>0) return true;
+        return false;
+    }
+
 
 
     public Boolean insertData(String username, String password, String email, String phonenumber){
