@@ -2,13 +2,14 @@ package com.example.bookshelf;
 
 public class BookModel {
 
-    private int id;
+    private int id=0;
     private String name;
     private int price;
     private String state;
 
+
     public BookModel(int id, String name, int price, String state) {
-        this.id = id;
+        this.id = id++;
         this.name = name;
         this.price = price;
         this.state = state;
@@ -19,15 +20,15 @@ public class BookModel {
 
     @Override
     public String toString() {
-        return "Book {" +
-                " id =" + id +
-                " , name ='" + name + '\'' +
-                " , price =" + price +
-                " , state=" + state +
+        return "BookModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", state='" + state + '\'' +
                 '}';
     }
 
-    //getters
+//getters
 
     public int getId() {
         return id;
@@ -60,13 +61,6 @@ public class BookModel {
     public void setPrice(int price) {
         this.price = price;
     }
-
-
-
-
-
-
-
 
 
 }
