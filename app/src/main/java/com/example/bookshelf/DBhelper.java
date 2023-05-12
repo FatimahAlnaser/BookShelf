@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DBhelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "BOOKSHELF1.db";
+    public static final String DBNAME = "BOOKSHELFF.db";
     public static final String USERSTABLE = "users";
     public static final String USERNAMECOL = "username";
     public static final String PASSWORDCOL = "password";
@@ -36,6 +36,7 @@ public class DBhelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create Table " + USERSTABLE + "(" + USERNAMECOL + " TEXT primary key, " + PASSWORDCOL + " TEXT, " + EMAILCOL +" TEXT, "+ PhoneNumCOL +" TEXT)");
+        sqLiteDatabase.execSQL("create Table " + BOOK_TABLE + "(" + BOOK_ID + " INTEGER primary key, " + COLUMN_BOOK_NAME + " TEXT, " + COLUMN_BOOK_PRICE +" INTEGER, "+ COLUMN_BOOK_STATE + " TEXT," +COLUMN_BOOK_STATE+ "TEXT,"+ "USERNAME TEXT, FOREIGN KEY('USERNAME') "+ "REFERENCES "+ USERSTABLE + "("+USERNAMECOL+"))");
     }
 
     @Override
@@ -46,7 +47,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(BOOK_ID,book.getId());
         cv.put(COLUMN_BOOK_NAME,book.getName());
         cv.put(COLUMN_BOOK_PRICE,book.getPrice());
         cv.put(COLUMN_BOOK_STATE,book.getState());
@@ -73,6 +74,7 @@ public class DBhelper extends SQLiteOpenHelper {
                 String BookName = cursor.getString(1);
                 int BookPrice = cursor.getInt(2);
                 String BookState = cursor.getString(3);
+                String user =cursor.getString(4);
 
                 BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState);
                 returnList.add(newCustomer);
@@ -113,12 +115,59 @@ public class DBhelper extends SQLiteOpenHelper {
         ContentValues contentValues= new ContentValues();
         contentValues.put(USERNAMECOL, username);
         contentValues.put(PASSWORDCOL, password);
-        contentValues.put(EMAILCOL, email);
-        contentValues.put(PhoneNumCOL, phonenumber);
+        contentValues.put(EMAILCOL, email);contentValues.put(PhoneNumCOL, phonenumber);
 
         long result = MyDB.insert(USERSTABLE, null, contentValues);
         if(result==-1) return false;
         return true;
     }
-}
+    /////DELETE
+    public List<BookModel> getBook(){
+        List<BookModel> returnList = new ArrayList<>();
 
+// check the where condition *****************************************************************************************
+       String queryString ="SELECT * FROM "+ BOOK_TABLE ;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString,null);
+
+        if (cursor.moveToFirst()){
+            do{
+                int bookID = cursor.getInt(0);
+                String BookName = cursor.getString(1);
+                int BookPrice = cursor.getInt(2);
+                String BookState = cursor.getString(3);
+
+
+                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState);
+                returnList.add(newCustomer);
+
+            }while (cursor.moveToNext());
+
+        }else{
+
+        }
+
+        cursor.close();
+        db.close();
+
+
+        return returnList;
+
+    }
+    public boolean DeleteOne(BookModel BookMod){
+        SQLiteDatabase db = this.getWritableDatabase();
+        //////check the where condition **********************************************************************************************
+        String queryString= "Delete From " + BOOK_TABLE + " WHERE "+ BOOK_ID+" = " + BookMod.getId() ;
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        } else{
+
+            return false;
+        }
+
+    }
+
+
+}

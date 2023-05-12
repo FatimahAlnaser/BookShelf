@@ -6,16 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".DeleteBook">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/back"
-        tools:context=".MainActivity">
-
         <Button
             android:id="@+id/btnviews"
             android:layout_width="300dp"
-            android:layout_height="47dp"
+            android:layout_height="48dp"
             android:fontFamily="sans-serif-black"
             android:text="VIEW MY BOOK"
             android:textColor="#FF5722"
@@ -67,4 +61,3 @@
             app:layout_constraintVertical_bias="0.933" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

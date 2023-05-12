@@ -65,12 +65,14 @@ public class AddBook extends AppCompatActivity {
         book_price=findViewById(R.id.book_price);
         book_stat=findViewById(R.id.book_stat);
 
+
         dataBaseHelper = new DBhelper(AddBook.this);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BookModel newBook;
+
 
                 try {
                     newBook= new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()),  book_stat.getText().toString());

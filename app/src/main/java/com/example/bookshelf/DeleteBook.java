@@ -21,36 +21,37 @@ public class DeleteBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_book);
-       /*lv_BookList = findViewById(R.id.lv_BooksList);
-         btnview=findViewById(R.id.btnviews);
+        lv_BookList = findViewById(R.id.lv_BooksList);
+        btnview=findViewById(R.id.btnviews);
 
-      dataBaseHelper = new DBhelper(DeleteBook.this);
+        dataBaseHelper = new DBhelper(DeleteBook.this);
         ShowBookOnListView(dataBaseHelper);
 
-    }
+
 
         btnview.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v){
-            dataBaseHelper = new DBhelper(DeleteBook.this);
-            ShowBookOnListView(dataBaseHelper);
+            public void onClick(View v){
+                dataBaseHelper = new DBhelper(DeleteBook.this);
+                ShowBookOnListView(dataBaseHelper);
 
-            //Toast.makeText(MainActivity.this, everyone.toString(), Toast.LENGTH_SHORT).show();
-        }
-    });
+                //Toast.makeText(MainActivity.this, everyone.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
-  lv_BookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_BookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            BookModel ClickedBook = (BookModel) adapterView.getItemAtPosition(i);
-            dataBaseHelper.DeleteOne(ClickedBook);
-            ShowBookOnListView(dataBaseHelper);
-            Toast.makeText(DeleteBook.this, "Deleted" + ClickedBook.toString(), Toast.LENGTH_SHORT).show();
-        }
-    });
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                BookModel ClickedBook = (BookModel) adapterView.getItemAtPosition(i);
+                dataBaseHelper.DeleteOne(ClickedBook);
+                ShowBookOnListView(dataBaseHelper);
+                Toast.makeText(DeleteBook.this, "Deleted" + ClickedBook.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     private void ShowBookOnListView(DBhelper dataBaseHelper) {
         bookArrayAdapter = new ArrayAdapter<BookModel>(DeleteBook.this, android.R.layout.simple_list_item_1, dataBaseHelper.getBook());
         lv_BookList.setAdapter(bookArrayAdapter);
-    }*/
     }
 }
