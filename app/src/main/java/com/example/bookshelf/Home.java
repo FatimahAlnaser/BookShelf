@@ -1,7 +1,10 @@
 package com.example.bookshelf;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog.Builder;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +27,24 @@ private Button add;
         LogOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Home.this,MainActivity.class);
-                startActivity(intent);
+               final Intent LogOutButton=new Intent(Home.this,MainActivity.class);
+                AlertDialog.Builder builder= new Builder(this);
+                builder.setTitle("Log Out");
+                builder.setMessage("Are you sure to Log out");
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(LogOutButton);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
+//
             }
         });
 
