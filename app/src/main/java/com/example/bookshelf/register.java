@@ -10,12 +10,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class register extends AppCompatActivity {
     EditText username, password,Email,phonenum;
     Button signup;
     DBhelper DB;
+
+    ImageView back;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -30,6 +33,7 @@ public class register extends AppCompatActivity {
         password = findViewById(R.id.password3);
         Email = findViewById(R.id.email);
         phonenum = findViewById(R.id.phonenumber);
+        back= findViewById(R.id.imageButton);
 
         signup = findViewById(R.id.signup);
         DB = new DBhelper(this);
@@ -67,6 +71,13 @@ public class register extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
