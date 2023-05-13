@@ -28,7 +28,7 @@ private Button add;
             @Override
             public void onClick(View view) {
                final Intent LogOutButton=new Intent(Home.this,MainActivity.class);
-                AlertDialog.Builder builder= new Builder(this);
+                AlertDialog.Builder builder= new Builder(Home.this);
                 builder.setTitle("Log Out");
                 builder.setMessage("Are you sure to Log out");
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
