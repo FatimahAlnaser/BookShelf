@@ -9,12 +9,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Signin extends AppCompatActivity {
     EditText username, password;
     Button Login;
     DBhelper DB;
+
+    ImageView back;
 
 
     @Override
@@ -27,6 +30,7 @@ public class Signin extends AppCompatActivity {
         Login= findViewById(R.id.logIn);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
+        back=findViewById(R.id.imageButton);
         DB = new DBhelper(this);
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +60,14 @@ public class Signin extends AppCompatActivity {
                     }
 
                 }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
