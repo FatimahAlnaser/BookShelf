@@ -81,26 +81,31 @@ public class AddBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BookModel newBook;
+                String book_name1 = book_name.getText().toString();
+                String book_Price=book_price.getText().toString();
+                String book_State=book_stat.getText().toString();
+                if (book_Price.equals("") || book_name1.equals("") || book_State.equals(""))
+                    Toast.makeText(AddBook.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else {
+
+                    try {
+                        newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString());
+                        Toast.makeText(AddBook.this, newBook.toString(), Toast.LENGTH_SHORT).show();
+
+                    } catch (Exception e) {
+                        Toast.makeText(AddBook.this, "Error creating customer", Toast.LENGTH_SHORT).show();
+                        newBook = new BookModel(-1, "Error", 0, "Error");
+                    }
 
 
-                try {
-                    newBook= new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()),  book_stat.getText().toString());
-                    Toast.makeText(AddBook.this, newBook.toString(),Toast.LENGTH_SHORT).show();
+                    dataBase dataBaseHelper = new dataBase(AddBook.this);
 
-                }catch (Exception e){
-                    Toast.makeText(AddBook.this, "Error creating customer",Toast.LENGTH_SHORT).show();
-                    newBook = new BookModel(-1 , "Error",0,"Error");
+                    boolean success = dataBaseHelper.addOne(newBook);
+
+                    Toast.makeText(AddBook.this, "Added successfully", Toast.LENGTH_SHORT).show();
+                    //ShowCustomerListView(dataBaseHelper);
+
                 }
-
-
-                dataBase dataBaseHelper = new dataBase(AddBook.this);
-
-                boolean success = dataBaseHelper.addOne(newBook);
-
-                Toast.makeText(AddBook.this,"Success= "+ success ,Toast.LENGTH_SHORT).show();
-                //ShowCustomerListView(dataBaseHelper);
-
-
             }
         });
 

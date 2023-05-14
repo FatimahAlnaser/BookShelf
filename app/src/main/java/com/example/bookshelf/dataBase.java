@@ -90,7 +90,7 @@ public class dataBase extends SQLiteOpenHelper {
     public boolean DeleteOne(BookModel BookMod){
         SQLiteDatabase db = this.getWritableDatabase();
         //////check the where condition **********************************************************************************************
-        String queryString= "Delete From " + BOOK_TABLE ;
+        String queryString= "Delete From " + BOOK_TABLE + " Where "+BOOK_ID+" ="+BookMod.getId();
         Cursor cursor = db.rawQuery(queryString, null);
         if(cursor.moveToFirst()){
             return true;
