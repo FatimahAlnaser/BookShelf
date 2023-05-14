@@ -48,10 +48,13 @@
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="44dp"
-        android:layout_height="33dp"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
         android:background="#FAF7F6"
+        android:contentDescription="@string/backButton"
+        android:hint="@string/backButton"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
