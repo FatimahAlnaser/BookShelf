@@ -27,9 +27,15 @@
         <activity
             android:name=".Signin"
             android:exported="false" />
+
+        <activity
+            android:name=".DeleteBook"
+            android:exported="false"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

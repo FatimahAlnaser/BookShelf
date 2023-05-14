@@ -7,59 +7,44 @@
     tools:context=".DeleteBook"
     android:background="@drawable/back">
 
-        <Button
-            android:id="@+id/btnviews"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:fontFamily="sans-serif-black"
-            android:text="VIEW MY BOOK"
-            android:textColor="#FF5722"
-            android:textSize="20sp"
-            app:cornerRadius="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.423" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="218dp"
-            android:layout_height="169dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.028"
-            app:srcCompat="@drawable/booklogo" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="218dp"
+        android:layout_height="169dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.028"
+        app:srcCompat="@drawable/booklogo" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="219dp"
-            android:layout_height="51dp"
-            android:fontFamily="serif-monospace"
-            android:text="BOOKSHELF"
-            android:textColor="#FFFFFF"
-            android:textSize="38dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.272" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="219dp"
+        android:layout_height="51dp"
+        android:fontFamily="serif-monospace"
+        android:text="BOOKSHELF"
+        android:textColor="#FFFFFF"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <ListView
-            android:id="@+id/lv_BooksList"
-            android:layout_width="403dp"
-            android:layout_height="323dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.933" />
+    <ListView
+        android:id="@+id/lv_BooksList"
+        android:layout_width="403dp"
+        android:layout_height="323dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.933" />
 
     <ImageButton
         android:id="@+id/imageButton1"

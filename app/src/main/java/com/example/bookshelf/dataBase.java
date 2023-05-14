@@ -59,7 +59,7 @@ public class dataBase extends SQLiteOpenHelper {
     public List<BookModel> getBook(){
         List<BookModel> returnList = new ArrayList<>();
 // check the where condition *****************************************************************************************
-        String queryString ="SELECT * FROM "+ BOOK_TABLE ; //+ " WHERE " + USERNAMECOL + " = " +.getId() ;;
+        String queryString ="SELECT * FROM "+ BOOK_TABLE ;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery(queryString,null);

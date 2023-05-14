@@ -16,6 +16,8 @@ import android.widget.Button;
 public class Home extends AppCompatActivity {
 private Button LogOutButton;
 private Button add;
+
+private Button delete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ private Button add;
         setContentView(R.layout.activity_home);
         LogOutButton=findViewById(R.id.LogOutButton);
         add=findViewById(R.id.btnadd);
+        delete=findViewById(R.id.btndelete);
         LogOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +63,14 @@ private Button add;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddBook.class);
+                startActivity(intent);
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DeleteBook.class);
                 startActivity(intent);
             }
         });

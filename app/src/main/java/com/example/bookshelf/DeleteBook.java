@@ -1,8 +1,12 @@
 package com.example.bookshelf;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -14,10 +18,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class DeleteBook extends AppCompatActivity {
     ListView lv_BookList;
     ArrayAdapter bookArrayAdapter;
     dataBase dataBaseHelper;
+
     Button btnview;
     ImageView back;
 
@@ -29,32 +36,51 @@ public class DeleteBook extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_delete_book);
         lv_BookList = findViewById(R.id.lv_BooksList);
-        btnview=findViewById(R.id.btnviews);
         back=findViewById(R.id.imageButton1);
 
         dataBaseHelper = new dataBase(DeleteBook.this);
-        ShowBookOnListView(dataBaseHelper);
+
+       ShowBookOnListView(dataBaseHelper);
 
 
 
-        btnview.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                dataBaseHelper = new dataBase(DeleteBook.this);
-                ShowBookOnListView(dataBaseHelper);
-
-                //Toast.makeText(MainActivity.this, everyone.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
-        lv_BookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+///////////////////////////////////////////////////////////////////////////////////////
+        lv_BookList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                BookModel ClickedBook = (BookModel) adapterView.getItemAtPosition(i);
-                dataBaseHelper.DeleteOne(ClickedBook);
-                ShowBookOnListView(dataBaseHelper);
-                Toast.makeText(DeleteBook.this, "Deleted" + ClickedBook.toString(), Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder= new AlertDialog.Builder(DeleteBook.this);
+                builder.setTitle("DELETE BOOK");
+                builder.setMessage("Are you sure you want to delete this Book?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                BookModel ClickedBook = (BookModel) adapterView.getItemAtPosition(i);
+                                dataBaseHelper.DeleteOne(ClickedBook);
+                                ShowBookOnListView(dataBaseHelper);
+                                Toast.makeText(DeleteBook.this, "Book has been Deleted successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+                Button nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                nbutton.setTextColor(Color.BLACK);
+                Button pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                pbutton.setTextColor(Color.BLACK);
             }
+
+
+
+
         });
 
         back.setOnClickListener(new View.OnClickListener() {
