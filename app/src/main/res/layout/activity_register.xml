@@ -25,6 +25,7 @@
         android:layout_height="17dp"
         android:fontFamily="serif-monospace"
         android:text="BOOKSHELF"
+        android:hint="@string/name1"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -195,9 +196,10 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="44dp"
-        android:layout_height="33dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="#FFFFFF"
+        android:contentDescription="@string/name1"
         app:circularflow_radiusInDP="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

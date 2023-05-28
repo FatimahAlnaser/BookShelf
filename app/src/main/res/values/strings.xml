@@ -3,4 +3,8 @@
     <string name="BookName">Enter the Book name</string>
     <string name="BookPrice">Enter the Book Price</string>
     <string name="Bookdisc">Enter the Book state</string>
+    <string name="backButton">Back</string>
+    <string name="name1">name</string>
+    <string name="link">schemas</string>
+
 </resources>
