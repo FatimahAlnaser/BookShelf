@@ -1,5 +1,7 @@
 package com.example.bookshelf;
 
+import android.graphics.Bitmap;
+
 public class BookModel {
 
     private int id=0;
@@ -7,12 +9,17 @@ public class BookModel {
     private int price;
     private String state;
 
+    private byte[] image;
 
-    public BookModel(int id, String name, int price, String state) {
+
+
+    public BookModel(int id, String name, int price, String state,byte[] image) {
         this.id = id++;
         this.name = name;
         this.price = price;
         this.state = state;
+        this.image=image;
+
     }
 
     public BookModel() {
@@ -62,5 +69,10 @@ public class BookModel {
         this.price = price;
     }
 
-
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    public byte[] getImage() {
+        return image;
+    }
 }

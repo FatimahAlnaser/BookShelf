@@ -25,7 +25,6 @@ public class DeleteBook extends AppCompatActivity {
     ArrayAdapter bookArrayAdapter;
     dataBase dataBaseHelper;
 
-    Button btnview;
     ImageView back;
 
     @Override
@@ -40,7 +39,6 @@ public class DeleteBook extends AppCompatActivity {
 
         dataBaseHelper = new dataBase(DeleteBook.this);
 
-       ShowBookOnListView(dataBaseHelper);
 
 
 
@@ -60,7 +58,7 @@ public class DeleteBook extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 BookModel ClickedBook = (BookModel) adapterView.getItemAtPosition(i);
                                 dataBaseHelper.DeleteOne(ClickedBook);
-                                ShowBookOnListView(dataBaseHelper);
+
                                 Toast.makeText(DeleteBook.this, "Book has been Deleted successfully", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -92,7 +90,7 @@ public class DeleteBook extends AppCompatActivity {
         });
 
     }
-    private void ShowBookOnListView(dataBase dataBaseHelper) {
+   private void ShowBookOnListView(dataBase dataBaseHelper) {
         bookArrayAdapter = new ArrayAdapter<BookModel>(DeleteBook.this, android.R.layout.simple_list_item_1, dataBaseHelper.getBook());
         lv_BookList.setAdapter(bookArrayAdapter);
     }

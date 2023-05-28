@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class register extends AppCompatActivity {
     EditText username, password,Email,phonenum;
     Button signup;
-    DBhelper DB;
+    dataBase DB;
 
     ImageView back;
 
@@ -36,7 +36,7 @@ public class register extends AppCompatActivity {
         back= findViewById(R.id.imageButton);
 
         signup = findViewById(R.id.signup);
-        DB = new DBhelper(this);
+        DB = new dataBase(this);
 
 
         signup.setOnClickListener(new View.OnClickListener() {

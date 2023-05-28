@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class Signin extends AppCompatActivity {
     EditText username, password;
     Button Login;
-    DBhelper DB;
+    dataBase DB;
 
     ImageView back;
 
@@ -31,7 +31,7 @@ public class Signin extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         back=findViewById(R.id.imageButton);
-        DB = new DBhelper(this);
+        DB = new dataBase(this);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
