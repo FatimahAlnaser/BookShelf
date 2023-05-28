@@ -34,7 +34,7 @@ public class DeleteBook extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_delete_book);
-        lv_BookList = findViewById(R.id.lv_BooksList);
+
         back=findViewById(R.id.imageButton1);
 
         dataBaseHelper = new dataBase(DeleteBook.this);
@@ -81,17 +81,7 @@ public class DeleteBook extends AppCompatActivity {
 
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-            }
-        });
 
-    }
-   private void ShowBookOnListView(dataBase dataBaseHelper) {
-        bookArrayAdapter = new ArrayAdapter<BookModel>(DeleteBook.this, android.R.layout.simple_list_item_1, dataBaseHelper.getBook());
-        lv_BookList.setAdapter(bookArrayAdapter);
+
     }
 }

@@ -33,8 +33,7 @@ public class dataBase extends SQLiteOpenHelper {
 
     public static final String PhoneNumCOL="phonenum";
 
-   private ByteArrayOutputStream byteArrayOutputStream;
-   private byte[] imageInBytes;
+
     public dataBase(@Nullable Context context) {
         super(context, "Book_shelf.db", null, 1);
 
@@ -107,11 +106,6 @@ public class dataBase extends SQLiteOpenHelper {
 
     }
 
-    /*public Cursor getBook(){
-     SQLiteDatabase db=this.getReadableDatabase() ;
-     Cursor cursor= db.rawQuery("Select * from "+BOOK_TABLE, null);
-     return cursor;
-    }*/
     public boolean DeleteOne(BookModel BookMod){
         SQLiteDatabase db = this.getWritableDatabase();
         //////check the where condition **********************************************************************************************
@@ -169,7 +163,35 @@ public class dataBase extends SQLiteOpenHelper {
         if(result==-1) return false;
         return true;
     }
-}
+
+
+    public BookModel getDetails(int id){
+
+        String queryString;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + BOOK_TABLE + " where ID=" +id , null);
+        BookModel bookModel=null;
+
+        if (cursor.moveToFirst()) {
+
+
+
+                @SuppressLint("Range") int bookid = cursor.getInt(cursor.getColumnIndex(BOOK_ID));
+                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_NAME));
+                @SuppressLint("Range") int price = cursor.getInt(cursor.getColumnIndex(COLUMN_BOOK_PRICE));
+                 @SuppressLint("Range") String status =cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_STATE));
+                @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+
+
+
+                bookModel = new BookModel(bookid,name,price,status,image);
+           }
+
+         return bookModel;
+        }
+
+    }
+
 
 
 

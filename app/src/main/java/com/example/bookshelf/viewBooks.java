@@ -2,10 +2,12 @@ package com.example.bookshelf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -21,7 +23,7 @@ public class viewBooks extends AppCompatActivity {
 
     ArrayAdapter ItemArrayAdapter;
     dataBase db;
-
+ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -37,6 +39,14 @@ public class viewBooks extends AppCompatActivity {
 
         bookAdapter bookAdapter = new bookAdapter(this, R.layout.activity_custom_list_view, items);
         ListViewJava.setAdapter(bookAdapter);
+        back=findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Home.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

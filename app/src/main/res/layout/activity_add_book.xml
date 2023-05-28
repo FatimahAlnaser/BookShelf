@@ -13,13 +13,13 @@
         android:layout_width="231dp"
         android:layout_height="53dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/BookName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -28,13 +28,13 @@
         android:layout_width="229dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/BookPrice"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.283"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_name" />
 
@@ -43,16 +43,30 @@
         android:layout_width="232dp"
         android:layout_height="51dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/Bookdisc"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintHorizontal_bias="0.289"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_price" />
 
+    <EditText
+        android:id="@+id/book_author"
+        android:layout_width="232dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="Enter Book Author"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.289"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_stat" />
 
     <Button
         android:id="@+id/btn_add"
@@ -60,7 +74,6 @@
         android:layout_height="55dp"
         android:layout_marginTop="146dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="112dp"
         android:fontFamily="sans-serif-black"
 
         android:text="Add"
@@ -69,10 +82,10 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_stat"
-        app:layout_constraintVertical_bias="1.0"></Button>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"></Button>
 
     <TextView
         android:id="@+id/textView"
@@ -113,10 +126,10 @@
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_stat"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintVertical_bias="0.559" />
 
     <TextView
         android:id="@+id/name1"
@@ -154,12 +167,11 @@
         android:layout_width="146dp"
         android:layout_height="128dp"
         android:layout_marginTop="28dp"
-        android:layout_marginBottom="122dp"
         android:background="@drawable/photo"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_add"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/upload"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.852"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_stat"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.358" />
 </androidx.constraintlayout.widget.ConstraintLayout>

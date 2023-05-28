@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -31,7 +32,7 @@ import java.io.InputStream;
 public class AddBook extends AppCompatActivity {
 
     Button btn_add,btnupload;
-    EditText book_name, book_price, book_stat;
+    EditText book_name, book_price, book_stat,book_author;
     dataBase dataBaseHelper;
 
 
@@ -60,6 +61,7 @@ public class AddBook extends AppCompatActivity {
         book_name = findViewById(R.id.book_name);
         book_price = findViewById(R.id.book_price);
         book_stat = findViewById(R.id.book_stat);
+        book_author=findViewById(R.id.book_author);
         imageView=(ImageView)findViewById(R.id.imageView);
 
         dataBaseHelper = new dataBase(this);
@@ -72,16 +74,16 @@ public class AddBook extends AppCompatActivity {
                 String book_Price = book_price.getText().toString();
                 String book_State = book_stat.getText().toString();
                 BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-                Bitmap bitmap = drawable.getBitmap();
-
-                image = getBytes(bitmap);
 
 
-                if (book_Price.equals("") || book_name1.equals("") || book_State.equals("") || image.length==0)
+
+                if (book_Price.equals("") || book_name1.equals("") || book_State.equals("") || drawable ==null)
                     Toast.makeText(AddBook.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else {
 
                     try {
+                        Bitmap bitmap = drawable.getBitmap();
+                        image = getBytes(bitmap);
                         newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString(), image);
                         Toast.makeText(AddBook.this, newBook.toString(), Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
