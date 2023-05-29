@@ -11,20 +11,25 @@ public class BookModel {
 
     private byte[] image;
 
+    private String author;
 
 
-    public BookModel(int id, String name, int price, String state,byte[] image) {
+
+    public BookModel(int id, String name, int price, String state,byte[] image,String author) {
         this.id = id++;
         this.name = name;
         this.price = price;
         this.state = state;
         this.image=image;
+        this.author=author;
 
     }
 
 
     public BookModel() {
     }
+
+
 
     @Override
     public String toString() {
@@ -75,5 +80,12 @@ public class BookModel {
     }
     public byte[] getImage() {
         return image;
+    }
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

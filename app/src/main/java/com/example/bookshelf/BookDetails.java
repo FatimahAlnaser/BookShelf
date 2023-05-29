@@ -49,6 +49,7 @@ public class BookDetails extends AppCompatActivity {
             name.setText("Book name: "+book.getName());
             price.setText(String.valueOf("Book price: "+book.getPrice()+" SR"));
             state.setText("Book status:"+book.getState());
+            author.setText("Book author: "+book.getAuthor() );
             Bitmap bitmap = BitmapFactory.decodeByteArray(book.getImage(), 0, book.getImage().length);
             image.setImageBitmap(bitmap);
         }

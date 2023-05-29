@@ -73,22 +73,23 @@ public class AddBook extends AppCompatActivity {
                 String book_name1 = book_name.getText().toString();
                 String book_Price = book_price.getText().toString();
                 String book_State = book_stat.getText().toString();
+                String book_author1=book_author.getText().toString();
                 BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
 
 
 
-                if (book_Price.equals("") || book_name1.equals("") || book_State.equals("") || drawable ==null)
+                if (book_Price.equals("") || book_name1.equals("") || book_State.equals("") || drawable ==null|| book_author1.equals(""))
                     Toast.makeText(AddBook.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else {
 
                     try {
                         Bitmap bitmap = drawable.getBitmap();
                         image = getBytes(bitmap);
-                        newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString(), image);
+                        newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString(), image,book_author.getText().toString());
                         Toast.makeText(AddBook.this, newBook.toString(), Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         Toast.makeText(AddBook.this, "Error creating customer", Toast.LENGTH_SHORT).show();
-                        newBook = new BookModel(-1, "Error", 0, "Error", null);
+                        newBook = new BookModel(-1, "Error", 0, "Error", null,"");
                     }
 
 

@@ -23,6 +23,8 @@ public class dataBase extends SQLiteOpenHelper {
     public static final String COLUMN_BOOK_NAME = "BOOK_NAME";
     public static final String COLUMN_BOOK_PRICE = "CUSTOMER_PRICE";
     public static final String COLUMN_BOOK_STATE = "BOOK_STATE";
+
+    public static final  String COLUMN_BOOK_AUTHOR="BOOK_AUTHOR";
     public static final String BOOK_ID = "ID";
 
     public static final String USERSTABLE = "users";
@@ -35,13 +37,13 @@ public class dataBase extends SQLiteOpenHelper {
 
 
     public dataBase(@Nullable Context context) {
-        super(context, "Book_shelf.db", null, 1);
+        super(context, "Book_SHELF1.db", null, 1);
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createDataBase ="CREATE TABLE "+ BOOK_TABLE +" ( "+ BOOK_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BOOK_NAME+ " TEXT , "+ COLUMN_BOOK_PRICE +" INT , " +COLUMN_BOOK_STATE +" TEXT ,image BLOB)";
+        String createDataBase ="CREATE TABLE "+ BOOK_TABLE +" ( "+ BOOK_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BOOK_NAME+ " TEXT , "+ COLUMN_BOOK_PRICE +" INT , " +COLUMN_BOOK_STATE +" TEXT ,image BLOB ," +COLUMN_BOOK_AUTHOR+" TEXT )";
 
         db.execSQL(createDataBase);
         db.execSQL("create Table " + USERSTABLE + "(" + USERNAMECOL + " TEXT primary key, " + PASSWORDCOL + " TEXT, " + EMAILCOL +" TEXT, "+ PhoneNumCOL +" TEXT)");
@@ -63,6 +65,7 @@ public class dataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_BOOK_PRICE,book.getPrice());
         cv.put(COLUMN_BOOK_STATE,book.getState());
         cv.put("image",book.getImage());
+        cv.put(COLUMN_BOOK_AUTHOR,book.getAuthor());
 
 
         long insert = db.insert(BOOK_TABLE, null, cv);
@@ -87,9 +90,10 @@ public class dataBase extends SQLiteOpenHelper {
                 int BookPrice = cursor.getInt(2);
                 String BookState = cursor.getString(3);
                 @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+                String BookAuthor=cursor.getString(5);
 
 
-                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState,image);
+                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState,image,BookAuthor);
                 returnList.add(newCustomer);
 
             }while (cursor.moveToNext());
@@ -180,11 +184,12 @@ public class dataBase extends SQLiteOpenHelper {
                 @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_NAME));
                 @SuppressLint("Range") int price = cursor.getInt(cursor.getColumnIndex(COLUMN_BOOK_PRICE));
                  @SuppressLint("Range") String status =cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_STATE));
+            @SuppressLint("Range") String Author =cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_AUTHOR));
                 @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
 
 
 
-                bookModel = new BookModel(bookid,name,price,status,image);
+                bookModel = new BookModel(bookid,name,price,status,image,Author);
            }
 
          return bookModel;
