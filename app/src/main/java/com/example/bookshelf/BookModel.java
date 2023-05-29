@@ -13,15 +13,17 @@ public class BookModel {
 
     private String author;
 
+    private String UserName;
 
 
-    public BookModel(int id, String name, int price, String state,byte[] image,String author) {
+    public BookModel(int id, String name, int price, String state,byte[] image,String author, String UserName) {
         this.id = id++;
         this.name = name;
         this.price = price;
         this.state = state;
         this.image=image;
         this.author=author;
+        this.UserName=UserName;
 
     }
 
@@ -87,5 +89,13 @@ public class BookModel {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
     }
 }

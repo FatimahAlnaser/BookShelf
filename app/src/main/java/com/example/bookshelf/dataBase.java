@@ -68,6 +68,7 @@ public class dataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_BOOK_AUTHOR,book.getAuthor());
 
 
+
         long insert = db.insert(BOOK_TABLE, null, cv);
         if (insert== -1){return false;}
         else {return true;}
@@ -93,7 +94,7 @@ public class dataBase extends SQLiteOpenHelper {
                 String BookAuthor=cursor.getString(5);
 
 
-                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState,image,BookAuthor);
+                BookModel newCustomer = new BookModel(bookID, BookName, BookPrice, BookState,image,BookAuthor,UserInfo.username);
                 returnList.add(newCustomer);
 
             }while (cursor.moveToNext());
@@ -111,6 +112,7 @@ public class dataBase extends SQLiteOpenHelper {
     }
 
     public boolean DeleteOne(BookModel BookMod){
+
         SQLiteDatabase db = this.getWritableDatabase();
         //////check the where condition **********************************************************************************************
         String queryString= "Delete From " + BOOK_TABLE + " Where "+BOOK_ID+" ="+BookMod.getId();
@@ -189,7 +191,7 @@ public class dataBase extends SQLiteOpenHelper {
 
 
 
-                bookModel = new BookModel(bookid,name,price,status,image,Author);
+                bookModel = new BookModel(bookid,name,price,status,image,Author,UserInfo.username);
            }
 
          return bookModel;

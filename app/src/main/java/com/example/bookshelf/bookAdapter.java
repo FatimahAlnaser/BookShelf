@@ -46,6 +46,9 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
              public void onClick(View view) {
 
                  Boolean delete = db.DeleteOne(currentBook);
+                     Intent intent = new Intent(context.getApplicationContext(), viewBooks.class);
+                     context.startActivity(intent);
+
              }
          });
 
