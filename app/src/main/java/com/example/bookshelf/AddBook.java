@@ -85,11 +85,11 @@ public class AddBook extends AppCompatActivity {
                     try {
                         Bitmap bitmap = drawable.getBitmap();
                         image = getBytes(bitmap);
-                        newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString(), image,book_author.getText().toString());
+                        newBook = new BookModel(-1, book_name.getText().toString(), Integer.parseInt(book_price.getText().toString()), book_stat.getText().toString(), image,book_author.getText().toString(),UserInfo.username);
                         Toast.makeText(AddBook.this, newBook.toString(), Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         Toast.makeText(AddBook.this, "Error creating customer", Toast.LENGTH_SHORT).show();
-                        newBook = new BookModel(-1, "Error", 0, "Error", null,"");
+                        newBook = new BookModel(-1, "Error", 0, "Error", null,"","");
                     }
 
 

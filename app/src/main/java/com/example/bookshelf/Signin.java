@@ -19,6 +19,8 @@ public class Signin extends AppCompatActivity {
 
     ImageView back;
 
+    String user,pass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,8 @@ public class Signin extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
+                 user = username.getText().toString();
+                pass = password.getText().toString();
 
                 if(user.equals("")||pass.equals(""))
                     Toast.makeText(Signin.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
@@ -48,7 +50,7 @@ public class Signin extends AppCompatActivity {
                         Toast.makeText(Signin.this, "Username or password is wrong ", Toast.LENGTH_SHORT).show();
                         }else{
 
-
+                        UserInfo.username=user;
                                     Intent intent = new Intent(getApplicationContext(), Home.class);
                                     startActivity(intent);
 
