@@ -40,7 +40,7 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
         db=new dataBase(context);
 
         BookModel currentBook = getItem(position);
-        bName.setText("Book Name: "+currentBook.getName());
+        bName.setText(currentBook.getName());
          btndelete.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -65,7 +65,7 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
 
 
 
-            bPrice.setText(String.valueOf("Book Price: " +currentBook.getPrice()+" SR"));
+            bPrice.setText(String.valueOf(currentBook.getPrice()+" SR"));
 
 
 
