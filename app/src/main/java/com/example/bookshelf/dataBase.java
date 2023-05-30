@@ -45,10 +45,10 @@ public class dataBase extends SQLiteOpenHelper {
 
     public static final String COLUMN_ORDER_UESRNAME = "username";
 
-    public static final String COLUMN_ORDER_IDBOOK= "BookID";
-    public static final String COLUMN_ORDER_NAME= "BookName";
-    public static final String COLUMN_ORDER_PRICE= "BookPrice";
-    public static final String COLUMN_ORDER_IMAGE= "BookImage";
+    public static final String COLUMN_ORDER_IDBOOK= "RentedBookID";
+    public static final String COLUMN_ORDER_NAME= "RentedBookName";
+    public static final String COLUMN_ORDER_PRICE= "RentedBookPrice";
+    public static final String COLUMN_ORDER_IMAGE= "RentedBookimage";
 
 
 
