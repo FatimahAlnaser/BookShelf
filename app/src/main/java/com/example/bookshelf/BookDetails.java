@@ -19,8 +19,7 @@ import android.widget.Toast;
 
 public class BookDetails extends AppCompatActivity {
 
-    Button Rent,Return;
-    Context context;
+    Button Rent;
     TextView name,price,author,state;
     ImageView image,back;
     dataBase db;
@@ -44,6 +43,7 @@ public class BookDetails extends AppCompatActivity {
             state = (TextView) findViewById(R.id.State);
             author = (TextView) findViewById(R.id.Author);
             image = (ImageView) findViewById(R.id.imageBook);
+            Rent=(Button)  findViewById(R.id.btnRent);
 
 
             name.setText("Book name: "+book.getName());
@@ -65,6 +65,21 @@ public class BookDetails extends AppCompatActivity {
             }
         });
 
+        Rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BookModel Rentedbook=db.getDetails(bookId);
+                Boolean isRented=db.Renting(Rentedbook);
+                if(isRented){
+                    Toast.makeText(BookDetails.this, " Rented Successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MyRentedBooks.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(BookDetails.this, "Sorry! Book already rented", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }

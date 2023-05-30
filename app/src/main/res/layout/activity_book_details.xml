@@ -94,29 +94,17 @@
         android:id="@+id/btnRent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginBottom="76dp"
         android:fontFamily="sans-serif-black"
         android:text="RENT"
         android:textColor="#FF5722"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReturn"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="36dp"
-        android:fontFamily="sans-serif-black"
-        android:text="RETURN"
-        android:textColor="#FF5722"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Author" />
 
     <ImageButton
         android:id="@+id/back"

@@ -17,7 +17,7 @@ public class Home extends AppCompatActivity {
 private Button LogOutButton;
 private Button add;
 
-private Button view;
+private Button view,Rented;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,7 @@ private Button view;
         LogOutButton=findViewById(R.id.LogOutButton);
         add=findViewById(R.id.btnadd);
         view=findViewById(R.id.btnview);
+        Rented=findViewById(R.id.btnRented);
         LogOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +73,14 @@ private Button view;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), viewBooks.class);
+                startActivity(intent);
+            }
+        });
+
+        Rented.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MyRentedBooks.class);
                 startActivity(intent);
             }
         });

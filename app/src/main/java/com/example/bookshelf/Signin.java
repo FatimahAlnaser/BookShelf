@@ -50,8 +50,8 @@ public class Signin extends AppCompatActivity {
                         Toast.makeText(Signin.this, "Username or password is wrong ", Toast.LENGTH_SHORT).show();
                         }else{
 
-                        UserInfo.username=user;
                                     Intent intent = new Intent(getApplicationContext(), Home.class);
+                                    UserInfo.username=user;
                                     startActivity(intent);
 
 

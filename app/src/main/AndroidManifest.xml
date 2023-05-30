@@ -15,6 +15,12 @@
         android:theme="@style/Theme.BookShelf"
         tools:targetApi="31">
         <activity
+            android:name=".custom_list_view1"
+            android:exported="false" />
+        <activity
+            android:name=".MyRentedBooks"
+            android:exported="false" />
+        <activity
             android:name=".BookDetails"
             android:exported="false" />
         <activity
