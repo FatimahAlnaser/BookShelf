@@ -49,7 +49,7 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
 
                  AlertDialog.Builder builder= new AlertDialog.Builder(context);
                  builder.setTitle("DELETE BOOK");
-                 builder.setMessage("Are you sure you want to delete this Book?")
+                 builder.setMessage("Are you sure you want to delete this book?")
                          .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                              @Override
                              public void onClick(DialogInterface dialog, int which) {

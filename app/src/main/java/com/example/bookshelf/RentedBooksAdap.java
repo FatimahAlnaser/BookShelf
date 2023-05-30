@@ -53,8 +53,8 @@ public class RentedBooksAdap extends ArrayAdapter<RentedBookModel> {
            AlertDialog.Builder builder = new AlertDialog.Builder(context);
                public void onClick(View view){
 
-                   builder.setTitle("RETURN BOOK");
-                   builder.setMessage("Are you sure you want to return this Book?")
+                   builder.setTitle("RETURN A BOOK");
+                   builder.setMessage("Are you sure you want to return this book?")
                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                @Override
                                public void onClick(DialogInterface dialog, int which) {

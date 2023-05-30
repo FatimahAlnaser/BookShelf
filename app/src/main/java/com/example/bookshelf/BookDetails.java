@@ -74,8 +74,8 @@ public class BookDetails extends AppCompatActivity {
 
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(BookDetails.this);
-                        builder.setTitle("RENTED BOOK");
-                        builder.setMessage("Are you sure you want to RENT this Book?")
+                        builder.setTitle("RENT A BOOK");
+                        builder.setMessage("Are you sure you want to rent this book?")
                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
