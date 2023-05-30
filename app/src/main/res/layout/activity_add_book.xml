@@ -118,11 +118,11 @@
     <Button
         android:id="@+id/upload"
         android:layout_width="111dp"
-        android:layout_height="37dp"
+        android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:background="#FFFFFF"
         android:text="upload"
-        android:textColor="#FF5722"
+        android:textColor="#DD2C00"
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

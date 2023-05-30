@@ -60,8 +60,8 @@
 
             <Button
                 android:id="@+id/btnview1"
-                android:layout_width="44dp"
-                android:layout_height="38dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:textColor="#FF5722"
@@ -70,12 +70,13 @@
                 app:icon="@android:drawable/ic_dialog_info"
                 app:iconGravity="top"
                 app:iconSize="20dp"
-                app:iconTint="#99000000" />
+                app:iconTint="#99000000"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/btndelete1"
-                android:layout_width="44dp"
-                android:layout_height="43dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:textColor="#FF5722"
@@ -84,7 +85,8 @@
                 app:icon="@android:drawable/ic_menu_delete"
                 app:iconGravity="top"
                 app:iconSize="22dp"
-                app:iconTint="#000000" />
+                app:iconTint="#000000"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
 

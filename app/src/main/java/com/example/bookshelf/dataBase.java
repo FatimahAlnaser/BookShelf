@@ -19,7 +19,7 @@ import java.util.function.DoubleBinaryOperator;
 
 
 public class dataBase extends SQLiteOpenHelper {
-    public static final String DBNAME = "BSProjectApp.db";
+    public static final String DBNAME = "BSProjectApp1.db";
     public static final String BOOK_TABLE = "BOOK";
     public static final String COLUMN_BOOK_NAME = "BookName";
     public static final String COLUMN_BOOK_PRICE = "BookPrice";

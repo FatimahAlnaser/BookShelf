@@ -70,7 +70,8 @@
                 android:textColor="#FF5722"
                 android:textSize="10sp"
                 app:cornerRadius="30dp"
-                app:iconGravity="top" />
+                app:iconGravity="top"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 

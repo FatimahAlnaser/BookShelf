@@ -2,11 +2,14 @@ package com.example.bookshelf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,19 +70,42 @@ public class BookDetails extends AppCompatActivity {
 
         Rent.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                BookModel Rentedbook=db.getDetails(bookId);
-                Boolean isRented=db.Renting(Rentedbook);
-                if(isRented){
-                    Toast.makeText(BookDetails.this, " Rented Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MyRentedBooks.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(BookDetails.this, "Sorry! Book already rented", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
+                public void onClick(View view) {
 
-}
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(BookDetails.this);
+                        builder.setTitle("RENTED BOOK");
+                        builder.setMessage("Are you sure you want to RENT this Book?")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        BookModel Rentedbook=db.getDetails(bookId);
+                                        Boolean isRented=db.Renting(Rentedbook);
+                                        if(isRented){
+                                        Toast.makeText(BookDetails.this, " Rented Successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MyRentedBooks.class);
+                                        startActivity(intent); }
+                                        else {
+                                            Toast.makeText(BookDetails.this, "Sorry! Book already rented", Toast.LENGTH_SHORT).show();
+                                        }}
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                        Button nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                        nbutton.setTextColor(Color.BLACK);
+                        Button pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                        pbutton.setTextColor(Color.BLACK);
+
+
+
+                }
+            });
+            }
+    }

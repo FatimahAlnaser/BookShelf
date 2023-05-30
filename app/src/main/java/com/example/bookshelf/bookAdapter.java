@@ -2,9 +2,11 @@ package com.example.bookshelf;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,9 +47,50 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
              @Override
              public void onClick(View view) {
 
-                 Boolean delete = db.DeleteOne(currentBook);
-                     Intent intent = new Intent(context.getApplicationContext(), viewBooks.class);
-                     context.startActivity(intent);
+                 AlertDialog.Builder builder= new AlertDialog.Builder(context);
+                 builder.setTitle("DELETE BOOK");
+                 builder.setMessage("Are you sure you want to delete this Book?")
+                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                             @Override
+                             public void onClick(DialogInterface dialog, int which) {
+                                 Boolean delete = db.DeleteOne(currentBook);
+                                 Intent intent = new Intent(context.getApplicationContext(), viewBooks.class);
+                                 context.startActivity(intent);   }
+                         })
+                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                             @Override
+                             public void onClick(DialogInterface dialog, int which) {
+                                 dialog.cancel();
+                             }
+                         });
+                 AlertDialog alert = builder.create();
+                 alert.show();
+                 Button nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                 nbutton.setTextColor(Color.BLACK);
+                 Button pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                 pbutton.setTextColor(Color.BLACK);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
              }
          });

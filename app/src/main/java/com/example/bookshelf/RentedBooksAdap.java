@@ -1,9 +1,12 @@
 package com.example.bookshelf;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,12 +50,35 @@ public class RentedBooksAdap extends ArrayAdapter<RentedBookModel> {
         imgUser.setImageBitmap(bitmap);
 
        btnreturn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Boolean Return = db.Return(currentBook);
-               Intent intent = new Intent(context.getApplicationContext(), MyRentedBooks.class);
-               context.startActivity(intent);
-           }
+           AlertDialog.Builder builder = new AlertDialog.Builder(context);
+               public void onClick(View view){
+
+                   builder.setTitle("RETURN BOOK");
+                   builder.setMessage("Are you sure you want to return this Book?")
+                           .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialog, int which) {
+                                   Boolean Return = db.Return(currentBook);
+                                   Intent intent = new Intent(context.getApplicationContext(), MyRentedBooks.class);
+                                   context.startActivity(intent);
+                               }
+                           })
+                           .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialog, int which) {
+                                   dialog.cancel();
+                               }
+                           });
+
+                   AlertDialog alert = builder.create();
+                   alert.show();
+                   Button nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                   nbutton.setTextColor(Color.BLACK);
+                   Button pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                   pbutton.setTextColor(Color.BLACK);
+
+
+               }
        });
         return convertView;
     }
