@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,6 +55,7 @@ public class bookAdapter extends ArrayAdapter<BookModel> {
                              @Override
                              public void onClick(DialogInterface dialog, int which) {
                                  Boolean delete = db.DeleteOne(currentBook);
+                                 Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show();
                                  Intent intent = new Intent(context.getApplicationContext(), viewBooks.class);
                                  context.startActivity(intent);   }
                          })

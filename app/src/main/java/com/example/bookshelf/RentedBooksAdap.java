@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,6 +60,7 @@ public class RentedBooksAdap extends ArrayAdapter<RentedBookModel> {
                                @Override
                                public void onClick(DialogInterface dialog, int which) {
                                    Boolean Return = db.Return(currentBook);
+                                   Toast.makeText(context, " Returned Successfully", Toast.LENGTH_SHORT).show();
                                    Intent intent = new Intent(context.getApplicationContext(), MyRentedBooks.class);
                                    context.startActivity(intent);
                                }
